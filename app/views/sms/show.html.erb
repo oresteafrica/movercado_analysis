@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Body:</b>
+  <%= @sm.body %>
+</p>
+
+<p>
+  <b>Sender phone:</b>
+  <%= @sm.sender_phone_id %>
+</p>
+
+<p>
+  <b>Recipient phone:</b>
+  <%= @sm.recipient_phone_id %>
+</p>
+
+<p>
+  <b>Sent at:</b>
+  <%= @sm.sent_at %>
+</p>
+
+<p>
+  <b>App:</b>
+  <%= @sm.app %>
+</p>
+
+
+<%= link_to 'Edit', edit_sm_path(@sm) %> |
+<%= link_to 'Back', sms_path %>

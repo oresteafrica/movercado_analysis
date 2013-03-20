@@ -3,7 +3,6 @@ Movercado is an eco-system designed to increase efficiency of aid delivery at th
 
 It may be helpful to read more about Movercado at www.movercado.wordpress.com before continuing.
 
-
 === Design ===
 Movercado and movercado-analysis have been written with Ruby on Rails. Although you do not need to be a Rails expert to join the team, you should have a strong coding background that makes it easy to pick up a new language/platform. We have tried to make the exercises challenging but achievable even for rails beginners. All of your code must be written in Ruby/Rails. Of course you may leverage all the tools within the Rails stack (Javascript, CSS, etc).
 
