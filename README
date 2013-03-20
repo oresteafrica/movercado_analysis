@@ -1,0 +1,46 @@
+=== Movercado Analysis ===
+Movercado is an eco-system designed to increase efficiency of aid delivery at the bottom of the pyramid using local markets and SMS. We are looking for an amazing hacker to lead the development and operation of this platform for at least the next year. We have created this application to help us quickly identify talented individuals who may be a good fit. In order to participate, fork this project and if you follow all of the steps correctly, your application will automatically email us when complete.
+
+It may be helpful to read more about Movercado at www.movercado.wordpress.com before continuing.
+
+
+=== Design ===
+Movercado and movercado-analysis have been written with Ruby on Rails. Although you do not need to be a Rails expert to join the team, you should have a strong coding background that makes it easy to pick up a new language/platform. We have tried to make the exercises challenging but achievable even for rails beginners. All of your code must be written in Ruby/Rails. Of course you may leverage all the tools within the Rails stack (Javascript, CSS, etc).
+
+In order to make the exercises easier to understand, movercado-analysis includes actual code from the real Movercado but scaled down and with a lot taken out. The main concepts are:
+
+-Users: Anyone who sends a message into Movercado.
+-Phones: A cell phone belonging to a user.
+-Message: An SMS sent or received by a user.
+-Apps: Logical workflows that specify how to handle messages.
+-Roles: The classification for a specific user for a specific application.
+-Interactions: History of how users have interacted with Movercado.
+-Codes: Used to identify users in Movercado through quasi-encrypted means.
+
+=== Part one: deployment ===
+We are currently hosting Movercado on VPS services but are always trying to be ready to expand quickly. One good service that allows Rails apps to scale quickly is Heroku. Sign up with Heroku at www.heroku.com and follow these instructions https://devcenter.heroku.com/articles/rails3 to git your fork of movercado-analysis up and running.
+
+Be sure to seed the database using the provided seeds.rb script!
+
+=== Part two: analysis ===
+As you can read on the blog, one of the main flows being used in Movercado is IPC Session Validation. Imagine that you have been assigned to create a summary page to be used by accounting to give the top 10 activistas each week a bonus. Create a summary page at yourapp.herokuapp.com/activista_summary with a link from the homepage that provides:
+-The ID of the top ten activistas organized by week
+-The # of sessions each of those activistas led
+-The time of the first session for each activista and the time of the last session for each activista.
+
+Note that you have only been provided with data for January and February.
+
+=== Part three: alerts ===
+A second important workflow in Movercado is Troca Aki. Every time a valid Troca Aki interaction takes place, we need to reimburse the vendor real money. Given that money is changing hands, we need to make sure we have alerts in place in case there is suspicious activity on the network.
+
+Implement a feature that has Movercado send yourself an email if a vendor has more than 1,000 sales a month (a very high and potentially suspicious amount.)
+
+=== Part four: mocking messages ===
+We have Kannel setup on our servers hosting Movercado. Kannel is an SMS gateway that we have connected to the cell phone operators through an intermediary. Although you don't have Kannel setup on your Heroku space, we can simulate it's presence. Whenever Kannel receives a message, it forwards it to Movercado via a GET request to yourapp.herokuapp.com/kannel_entry.
+
+Write a rake task that simulates 1,000 valid Troca Aki interactions for a single vendor in order to trigger the alert you implemented above.
+
+=== Part five: submission ===
+Change the recipient of your alert message to be movercado-jobs@psi.org.mz. The subject of the email should be: "Final movercado-analysis submission". The body should include your name, your email, and a link to your website.
+
+Good luck and please use github to post any bugs you find so that others can be involved. For extra points, make a pull request for anything you think needs to be improved.
