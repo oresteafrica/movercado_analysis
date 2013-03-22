@@ -55,3 +55,5 @@ pickle-email-*.html
 .idea/workspace.xml
 
 .DS_Store
+
+*~
