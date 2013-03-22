@@ -1,6 +1,5 @@
 MovercadoAnalysis::Application.routes.draw do
-  resources :sms
-
+  get "kannel/entry_point"
 
   resources :codes
 

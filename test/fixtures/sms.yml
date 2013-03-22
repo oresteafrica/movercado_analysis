@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  body: MyText
+  body: MyString
   sender_phone_id: 1
   recipient_phone_id: 1
-  sent_at: 2013-03-20 15:06:20
+  sent_at: 2013-03-20 16:09:42
   app: 
 
 two:
-  body: MyText
+  body: MyString
   sender_phone_id: 1
   recipient_phone_id: 1
-  sent_at: 2013-03-20 15:06:20
+  sent_at: 2013-03-20 16:09:42
   app: 
