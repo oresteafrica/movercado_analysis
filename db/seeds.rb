@@ -12,10 +12,10 @@ i = IpcValidation.where(name: "IPC Validation Campaign", code: "III").first_or_c
 Role.find_or_create_by_name("vendor")
 Role.find_or_create_by_name("activista")
 
-50.times do
+30.times do
   u = User.create!
   u.roles.create(app_id: i.id, name: "activista")
-  rand(20).times do
+  rand(15).times do
     c = Code.create(app_id: i.id, user_id: u.id)
 
     Sms.receive(

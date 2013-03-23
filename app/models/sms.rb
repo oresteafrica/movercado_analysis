@@ -31,7 +31,7 @@ class Sms < ActiveRecord::Base
   end
 
   def self.app_code(message_text)
-    match = message_text.match(/^(\s*\S{1}){3}/)
+    match = message_text.downcase.match(/^(\s*\S{1}){3}/)
     (match) ? match[0] : match
   end
 

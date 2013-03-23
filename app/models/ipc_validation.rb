@@ -28,7 +28,7 @@ class IpcValidation < App
     activista.interactions.create(name: "participated in IPC", app_id: self.id)
     user_code.inc_usage
 
-    troca_aki_code = beneficiary.codes.create(app_id: self.id)
+    troca_aki_code = beneficiary.codes.create(app_id: TrocaAkiValidation.first.id)
     Sms.push(sms.sender_phone, "Vai a um posto TROCA AKI, apresenta este codigo #{troca_aki_code.to_s} e recebe uma garrafa de Certeza. Bebe agua tratada com Certeza e evita as doencas diarreicas."); return
   end
 end

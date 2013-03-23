@@ -11,12 +11,12 @@ In order to make the exercises easier to understand, movercado-analysis includes
   -Users: Anyone who sends a message into Movercado.
   -Phones: A cell phone belonging to a user.
   -Message: An SMS sent or received by a user.
-  -Apps: Logical workflows that specify how to handle messages.
+  -Apps: Logical workflows that specify how to handle messages. Apps have a 3-digit code that the processing mechanism attempts to parse on incoming messages to identify the appopriate app to handle the message. This 3-digit app-code should not be confused with the Codes detailed below.
   -Roles: The classification for a specific user for a specific application. Activista, vendor, etc.
   -Interactions: History of how users have interacted with Movercado. This is where sales (Troca Aki), trainings (IPC) are recorded.
   -Codes: Used to identify users in Movercado through quasi-encrypted means.
 
-Look at the diagram in doc/movercado-analysis.jped for an idea of how each of these things are connected.
+Look at the diagram in doc/movercado-analysis.jped for an idea of how each of these things are connected. Some details have been intentionally left out to encourage you to look through the source and understand how things work.
 
 hint: db/schema.rb is always the best source!
 

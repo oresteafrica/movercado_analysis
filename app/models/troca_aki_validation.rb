@@ -1,24 +1,28 @@
 class TrocaAkiValidation < App
   def process(sms)
-    unless code = sms.code
-      Sms.push(sms.sender_phone, t("code.invalid")); return
+    vendor_phone = sms.sender_phone
+
+    unless user_code = sms.user_code
+      Sms.push(vendor_phone, t("code.invalid")); return
     end
 
-    unless code.times_used < 1
-      Sms.push(sms.sender_phone, t("code.overuse")); return
+    unless user_code.times_used < 1
+      Sms.push(vendor_phone, t("code.overuse")); return
     end
 
     sender = sms.sender
 
     unless sender.vendor?(self)
-      Sms.push(sms.sender_phone, "Sorry you are not a vendor"); return
+      Sms.push(vendor_phone, "Sorry you are not a vendor"); return
     end
 
-    sender.interactions.create(name: "redeemed troca aki code", app_id: self.id)
-    code.user.interactions.create(name: "redeemed troca aki code", app_id: self.id)
-    code.inc_usage
+    customer = user_code.user
 
-    Sms.push(sms.sender_phone, "Give product")
-    Sms.push(code.user, "Get product")
+    sender.interactions.create(name: "redeemed troca aki code", app_id: self.id)
+    customer.interactions.create(name: "redeemed troca aki code", app_id: self.id)
+    user_code.inc_usage
+
+    Sms.push(vendor_phone, "Obrigado. Este codigo e valido, por favor entrega 1 garrafa de Certeza ao teu cliente e a PSI vai-te pagar os 10 meticais.")
+    Sms.push(customer, "Parabens por trocares o codigo. Usa a garrafa de Certeza para teres agua limpa em casa e evitares as doencas diarreicas.")
   end
 end

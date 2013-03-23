@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   has_many :codes
   has_many :phones
 
-  attr_accessible :roles_attributes
+  attr_accessible :roles_attributes, :phones_attributes
 
-  accepts_nested_attributes_for :roles
+  accepts_nested_attributes_for :roles, :phones
 
   def default_phone
     (phones.blank?) ? Phone.create(number: SecureRandom.hex) : phones.first

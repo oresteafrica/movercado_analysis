@@ -10,12 +10,20 @@
     </div>
   <% end %>
 
+  <h4>Roles</h4>
   <%= f.simple_fields_for :roles do |role_form| %>
     <%= role_form.input :app_id, collection: App.all, value_method: :id, label_method: :name %>
-    <%= role_form.input :name, collection: Role.all, value_method: :name, label_method: :name %>
+    <%= role_form.input :name, collection: Role.all.uniq { |r| r.name }, value_method: :name, label_method: :name %>
     <%= role_form.link_to_remove "Remove role" %>
   <% end %>
   <%= f.link_to_add "Add role for user", :roles %>
+
+  <h4>Phones</h4>
+  <%= f.simple_fields_for :phones do |phone_form| %>
+    <%= phone_form.input :number %>
+    <%= phone_form.link_to_remove "Remove phone" %>
+  <% end %>
+  <%= f.link_to_add "Add phone for user", :phones %>
 
   <%= render 'interactions/index', user: @user %>
 
