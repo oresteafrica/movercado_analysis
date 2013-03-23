@@ -40,6 +40,8 @@ A second important workflow in Movercado is Troca Aki. Every time a valid Troca 
 
 Implement a feature that has Movercado send yourself an email if a vendor has more than 1,000 sales a month (a very high and potentially suspicious amount.)
 
+hint: These instructions may be helpful for getting emails working from Heroku. https://devcenter.heroku.com/articles/smtp
+
 === Part four: mocking messages ===
 We have Kannel setup on our servers hosting Movercado. Kannel is an SMS gateway that we have connected to the cell phone operators through an intermediary. Although you don't have Kannel setup on your Heroku space, we can simulate it's presence. Whenever Kannel receives a message, it forwards it to Movercado via a GET request to yourapp.herokuapp.com/kannel/entry_point.
 
