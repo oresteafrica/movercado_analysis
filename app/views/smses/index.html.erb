@@ -1,0 +1,19 @@
+<h1>Listing SMSs</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Time</th>
+  </tr>
+
+<% @smses.each do |sms| %>
+  <tr>
+    <td><%= sms.body %></td>
+    <td><%= sms.sender_phone.number %></td>
+    <td><%= sms.recipient_phone.number %></td>
+    <td><%= sms.sent_at %></td>
+  </tr>
+<% end %>
+</table>

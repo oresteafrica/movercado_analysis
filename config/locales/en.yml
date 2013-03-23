@@ -3,3 +3,6 @@
 
 en:
   hello: "Hello world"
+  code:
+    overuse: "Este codigo ja foi utilizado."
+    invalid: "O codigo introduzido e invalido. Verifica o codigo no cartao e tenta de novo."

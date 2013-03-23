@@ -4,6 +4,7 @@ class CreateCodes < ActiveRecord::Migration
       t.references :user
       t.references :app
       t.string :code
+      t.integer :times_used, default: 0
 
       t.timestamps
     end

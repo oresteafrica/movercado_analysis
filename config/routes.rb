@@ -5,9 +5,12 @@ MovercadoAnalysis::Application.routes.draw do
 
 
   resources :apps
-
+  resources :troca_aki_validations, :controller => "apps", :type => "TrocaAkiValidation"
+  resources :ipc_validations, :controller => "apps", :type => "IpcValidation"
 
   resources :users
+
+  root to: "smses#index"
 
 
   # The priority is based upon order of creation:

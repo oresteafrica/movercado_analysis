@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(:version => 20130320140942) do
     t.integer  "user_id"
     t.integer  "app_id"
     t.string   "code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "times_used", :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "codes", ["app_id"], :name => "index_codes_on_app_id"

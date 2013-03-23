@@ -6,20 +6,25 @@ It may be helpful to read more about Movercado at www.movercado.wordpress.com be
 === Design ===
 Movercado and movercado-analysis have been written with Ruby on Rails. Although you do not need to be a Rails expert to join the team, you should have a strong coding background that makes it easy to pick up a new language/platform. We have tried to make the exercises challenging but achievable even for rails beginners. All of your code must be written in Ruby/Rails. Of course you may leverage all the tools within the Rails stack (Javascript, CSS, etc).
 
-In order to make the exercises easier to understand, movercado-analysis includes actual code from the real Movercado but scaled down and with a lot taken out. The main concepts are:
+In order to make the exercises easier to understand, movercado-analysis includes barebones functionality taken from the earliest versions of the Movercado prototype. The main concepts are:
 
   -Users: Anyone who sends a message into Movercado.
   -Phones: A cell phone belonging to a user.
   -Message: An SMS sent or received by a user.
   -Apps: Logical workflows that specify how to handle messages.
-  -Roles: The classification for a specific user for a specific application.
-  -Interactions: History of how users have interacted with Movercado.
+  -Roles: The classification for a specific user for a specific application. Activista, vendor, etc.
+  -Interactions: History of how users have interacted with Movercado. This is where sales (Troca Aki), trainings (IPC) are recorded.
   -Codes: Used to identify users in Movercado through quasi-encrypted means.
+
+Look at the diagram in doc/movercado-analysis.jped for an idea of how each of these things are connected.
+
+hint: db/schema.rb is always the best source!
 
 === Part one: deployment ===
 We are currently hosting Movercado on VPS services but are always trying to be ready to expand quickly. One good service that allows Rails apps to scale quickly is Heroku. Sign up with Heroku at www.heroku.com and follow these instructions https://devcenter.heroku.com/articles/rails3 to git your fork of movercado-analysis up and running.
 
 Be sure to seed the database using the provided seeds.rb script!
+hint: rake db:seed and/or rake db:reset
 
 === Part two: analysis ===
 As you can read on the blog, one of the main flows being used in Movercado is IPC Session Validation. Imagine that you have been assigned to create a summary page to be used by accounting to give the top 10 activistas each week a bonus. Create a summary page at yourapp.herokuapp.com/activista_summary with a link from the homepage that provides:
@@ -40,7 +45,9 @@ We have Kannel setup on our servers hosting Movercado. Kannel is an SMS gateway 
 
 Write a rake task that simulates 1,000 valid Troca Aki interactions for a single vendor in order to trigger the alert you implemented above.
 
+hint: Look at the seeds script which creates sample IPC validations. You may be able to do something similar for Troca Aki validations.
+
 === Part five: submission ===
-Change the recipient of your alert message to be movercado-jobs@psi.org.mz. The subject of the email should be: "Final movercado-analysis submission". The body should include your name, your email, and a link to your website.
+Change the recipient of your alert message to be movercado-jobs@psi.org.mz. The subject of the email should be: "Final movercado-analysis submission". The body should include your name, your email, a link to your github fork, and a link to your website on herkoku.
 
 Good luck and please use github to post any bugs you find so that others can be involved. For extra points, make a pull request for anything you think needs to be improved.

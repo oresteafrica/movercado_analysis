@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Code</th>
     <th>Type</th>
     <th></th>
     <th></th>
@@ -12,6 +13,7 @@
 <% @apps.each do |app| %>
   <tr>
     <td><%= app.name %></td>
+    <td><%= app.code %></td>
     <td><%= app.type %></td>
     <td><%= link_to 'Show', app %></td>
     <td><%= link_to 'Edit', edit_app_path(app) %></td>

@@ -1,8 +1,7 @@
-<%= form_for(@user) do |f| %>
+<%= simple_nested_form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,6 +9,15 @@
       </ul>
     </div>
   <% end %>
+
+  <%= f.simple_fields_for :roles do |role_form| %>
+    <%= role_form.input :app_id, collection: App.all, value_method: :id, label_method: :name %>
+    <%= role_form.input :name, collection: Role.all, value_method: :name, label_method: :name %>
+    <%= role_form.link_to_remove "Remove role" %>
+  <% end %>
+  <%= f.link_to_add "Add role for user", :roles %>
+
+  <%= render 'interactions/index', user: @user %>
 
   <div class="actions">
     <%= f.submit %>

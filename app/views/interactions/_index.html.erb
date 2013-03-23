@@ -1,0 +1,21 @@
+<% unless user.interactions.blank? %>
+  <h4>Interactions</h4>
+
+  <table>
+    <tr>
+      <th>App</th>
+      <th>Name</th>
+      <th>When</th>
+    </tr>
+
+
+    <% user.interactions.each do |i| %>
+      <tr>
+        <td><b><%= i.app %></b></td>
+        <td><%= i.name %></td>
+        <td><%= i.created_at %></td>
+      </tr>
+    <% end %>
+
+  </table>
+<% end %>

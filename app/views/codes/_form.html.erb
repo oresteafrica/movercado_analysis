@@ -13,15 +13,11 @@
 
   <div class="field">
     <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.collection_select :user_id, User.all, :id, :id %>
   </div>
   <div class="field">
     <%= f.label :app %><br />
-    <%= f.text_field :app %>
-  </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+    <%= f.collection_select :app_id, App.all, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

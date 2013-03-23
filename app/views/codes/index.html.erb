@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Printable</th>
     <th>User</th>
     <th>App</th>
     <th>Code</th>
@@ -12,6 +13,7 @@
 
 <% @codes.each do |code| %>
   <tr>
+    <td><b><%= code.to_s %></b></td>
     <td><%= code.user %></td>
     <td><%= code.app %></td>
     <td><%= code.code %></td>
