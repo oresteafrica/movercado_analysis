@@ -1,0 +1,16 @@
+<h3>The # of sessions each of those activistas led</h3>
+
+<table>
+  <tr>
+    <th>User id</th>
+    <th>Counter</th>
+  </tr>
+
+<% @ions.each do |ion| %>
+  <tr>
+    <td style="border:1px solid black;"><%= ion.user_id %></td>
+    <td style="border:1px solid black;"><%= ion.counter %></td>
+  </tr>
+<% end %>
+</table>
+

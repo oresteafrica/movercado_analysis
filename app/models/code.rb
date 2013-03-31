@@ -30,7 +30,7 @@ class Code < ActiveRecord::Base
   end
 
   def to_s
-    "#{app.code}#{code}".upcase
+    "#{code}".upcase
   end
 
   def fill_code

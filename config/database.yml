@@ -20,7 +20,7 @@ test:
   pool: 5
   timeout: 5000
   template: template0
-
+  
 production:
   adapter: postgresql
   encoding: unicode

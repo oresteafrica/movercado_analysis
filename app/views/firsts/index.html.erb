@@ -1,0 +1,18 @@
+<h3>The time of the first session for each activista and the time of the last session for each activista.</h3>
+
+<table>
+  <tr>
+    <th>user_id</th>
+    <th>min</th>
+    <th>max</th>
+  </tr>
+
+<% @firsts.each do |first| %>
+  <tr>
+    <td style="border:1px solid black;"><%= first.user_id %></td>
+    <td style="border:1px solid black;"><%= first.min %></td>
+    <td style="border:1px solid black;"><%= first.max %></td>
+  </tr>
+<% end %>
+</table>
+
