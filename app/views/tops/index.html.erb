@@ -6,17 +6,14 @@
     <th>User id</th>
     <th>Number of codes</th>
     <th>Rank</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @tops.each do |top| %>
   <tr>
-    <td style="border:1px solid black;"><%= top.nweek %></td>
-    <td style="border:1px solid black;"><%= top.uid %></td>
-    <td style="border:1px solid black;"><%= top.cc %></td>
-    <td style="border:1px solid black;"><%= top.rr %></td>
+    <td><%= top.nweek %></td>
+    <td><%= top.uid %></td>
+    <td><%= top.cc %></td>
+    <td><%= top.rr %></td>
    </tr>
 <% end %>
 </table>

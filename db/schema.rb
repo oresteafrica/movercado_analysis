@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320140942) do
+ActiveRecord::Schema.define(:version => 20130331192716) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(:version => 20130320140942) do
   add_index "codes", ["app_id"], :name => "index_codes_on_app_id"
   add_index "codes", ["user_id"], :name => "index_codes_on_user_id"
 
+  create_table "firsts", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "interactions", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -43,6 +48,11 @@ ActiveRecord::Schema.define(:version => 20130320140942) do
 
   add_index "interactions", ["app_id"], :name => "index_interactions_on_app_id"
   add_index "interactions", ["user_id"], :name => "index_interactions_on_user_id"
+
+  create_table "ions", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "phones", :force => true do |t|
     t.string   "number"
@@ -75,6 +85,18 @@ ActiveRecord::Schema.define(:version => 20130320140942) do
   end
 
   add_index "sms", ["app_id"], :name => "index_sms_on_app_id"
+
+  create_table "tops", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "toptens", :force => true do |t|
+    t.string   "sessions"
+    t.string   "firstlast"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.datetime "created_at", :null => false

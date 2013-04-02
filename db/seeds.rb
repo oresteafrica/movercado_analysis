@@ -15,10 +15,12 @@ Role.find_or_create_by_name("activista")
 30.times do
   u = User.create!
   u.roles.create(app_id: i.id, name: "activista")
+# http://www.ruby-forum.com/topic/93106
   rand(15).times do
     c = Code.create(app_id: i.id, user_id: u.id)
 
     Sms.receive(
+# http://www.ruby-doc.org/stdlib-1.9.3/libdoc/securerandom/rdoc/SecureRandom.html
       SecureRandom.hex,
       "Movercado",
       c.to_s

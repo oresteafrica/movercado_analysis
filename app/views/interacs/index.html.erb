@@ -1,0 +1,23 @@
+<h1>Listing interactions</h1>
+
+<table>
+  <tr>
+    <th>user_id</th>
+    <th>app_id</th>
+    <th>created_at</th>
+    <th>updated_at</th>
+  </tr>
+
+<% @interacs.each do |interac| %>
+  <tr>
+    <td><%= interac.user_id %></td>
+    <td><%= interac.app_id %></td>
+    <td><%= interac.created_at %></td>
+    <td><%= interac.updated_at %></td>
+  </tr>
+<% end %>
+</table>
+
+
+			
+

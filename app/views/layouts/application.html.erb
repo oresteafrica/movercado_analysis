@@ -14,7 +14,7 @@
 
 <hr />
 
-<div style="border:1px solid black;width:120px;float:left;background-color:lightgrey;margin-right:20px;">
+<div id="divleft">
 <ul>
   <li><%= link_to "Messages", root_path %></li>
   <li><%= link_to "Users", users_path %></li>
@@ -26,12 +26,21 @@
 </ul>
 </div>
 
-<div style="border:1px solid black;width:200px;float:right;background-color:lightgrey;text-align:center;">
-<h3>Alerts</h3>
+<div id="divcentre">
+<%= yield %>
 </div>
 
 
-<%= yield %>
+<div id="divright">
+<h3>Alerts</h3>
+<hr />
+<div id="divright_alert"></div>
+<hr />
+
+<button id="bu_alert_01">Send email</button>
+</div>
+
+
 
 </body>
 </html>
