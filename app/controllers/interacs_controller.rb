@@ -9,9 +9,8 @@ class InteracsController < ApplicationController
       format.json { render json: @interacs }
     end
 
+
+
   end
-
-
-
 
 end

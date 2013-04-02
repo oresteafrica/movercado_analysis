@@ -20,30 +20,65 @@ $(function() {
 currdir = $(location).attr('href');
 var root = location.protocol + '//' + location.host;
 
-init_alert()
+init_alert_box()
+init_alert_email()
 
 $('#bu_alert_01').click(function () {
-var msg = 'Ongoing work';
-alert(msg);
+init_test_email();
+// var msg = 'Ongoing work';
+// alert(msg);
 });
 
-function init_alert() {
+function init_alert_box() {
 $.ajax({
 url: root+'/interacs',
 //type: 'GET',
 dataType: "json",
-beforeSend: function(a){ },
+beforeSend: function(a){ $('#divright_alert').html('<h2>Waiting</h2>'); },
 success: function(a){
 $('#divright_alert').html(
+// JSON.stringify(a)
+
 'There are a<br />maximum of<br /><b>'+
 a[0]['user_interactions']+
 '</b><br />interactions<br />for user '+
 a[0]['user_id']+'<br />app n. '+a[0]['app_id']
+
 );
 },
-error: function(a,b,c){ alert( 'a = ' + a + '\nb = ' + b + '\nc = ' + c ) },
+error: function(a,b,c){ alert( 'Error init_alert_box()\na = ' + a.responseText + '\nb = ' + b + '\nc = ' + c ) },
 complete: function(a,b){ }
 });
 }
+
+function init_alert_email() {
+$.ajax({
+url: root+'/morethans',
+beforeSend: function(a){ },
+success: function(a){},
+error: function(a,b,c){ alert( 'Error init_alert_email()\na = ' + a.responseText + '\nb = ' + b + '\nc = ' + c ) },
+complete: function(a,b){ }
+});
+}
+
+function init_test_email() {
+$.ajax({
+url: root+'/testmails',
+beforeSend: function(a){
+$('#bu_alert_01').text('wait');
+$('#bu_alert_01').attr('disabled','disabled');
+},
+success: function(a){ alert('email sent') },
+error: function(a,b,c){ alert( 'Error init_alert_email()\na = ' + a.responseText + '\nb = ' + b + '\nc = ' + c ) },
+complete: function(a,b){
+$('#bu_alert_01').text('Send email');
+$('#bu_alert_01').removeAttr('disabled');
+$('#bu_alert_01').blur();
+}
+});
+}
+
+
+
 
 });

@@ -15,7 +15,7 @@ ActionMailer::Base.smtp_settings = {
   :user_name			=> "movercado+parlatano.org",
   :password				=> "smtp_movercado_#9",
   :authentication		=> 'plain',
-#  :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
-  :enable_starttls_auto => true
+  :enable_starttls_auto => false,
+  :openssl_verify_mode  => 'none'
 } 
 

@@ -1,5 +1,11 @@
 MovercadoAnalysis::Application.routes.draw do
 
+  resources :testmails
+
+
+  resources :morethans
+
+
   resources :movmails
 
 
