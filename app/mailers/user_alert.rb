@@ -8,7 +8,7 @@ body: "Message sent from Oreste Parlatano oreste@parlatano.org, github https://g
 end
 
 def test_email(addbody)
-mail to: 'oreste@parlatano.org,macparlant@yahoo.com',
+mail to: 'oreste@parlatano.org,marnold@psi.org.mz',
 subject: "email test from Oreste Parlatano (oreste@parlatano.org)",
 body: addbody
 end

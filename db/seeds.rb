@@ -6,25 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-t = TrocaAkiValidation.where(name: "Troca Aki Campaign", code: "TTT").first_or_create
-i = IpcValidation.where(name: "IPC Validation Campaign", code: "III").first_or_create
 
-Role.find_or_create_by_name("vendor")
-Role.find_or_create_by_name("activista")
+1001.times do
 
-30.times do
-  u = User.create!
-  u.roles.create(app_id: i.id, name: "activista")
-# http://www.ruby-forum.com/topic/93106
-  rand(15).times do
-    c = Code.create(app_id: i.id, user_id: u.id)
+thinter = Interaction.create(name: 'Troca Aki Test',user_id: 3,app_id:1)
 
-    Sms.receive(
-# http://www.ruby-doc.org/stdlib-1.9.3/libdoc/securerandom/rdoc/SecureRandom.html
-      SecureRandom.hex,
-      "Movercado",
-      c.to_s
-    )
-
-  end
 end

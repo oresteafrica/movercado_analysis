@@ -15,19 +15,33 @@
 //= require jquery_nested_form
 //= require_tree .
 
+//= /app/assets/javascript/require jquery.cookie.js;
+
+
 $(function() {
 
 currdir = $(location).attr('href');
 var root = location.protocol + '//' + location.host;
+var eaa;
 
-init_alert_box()
-init_alert_email()
-
-$('#bu_alert_01').click(function () {
-init_test_email();
-// var msg = 'Ongoing work';
-// alert(msg);
+// https://github.com/carhartl/jquery-cookie
+$('#div_email_auto_alert').html('<hr /><p><input type="checkbox" id="email_auto_alert" value="1">Send automatic email alert</p>');
+if ($.cookie('eaa') == null || typeof $.cookie('eaa') == 'undefined') {
+$.cookie('eaa','0'); eaa = '0'; } else { eaa = $.cookie('eaa'); }
+$('#email_auto_alert').change(function () {
+var check = $('#email_auto_alert').is(':checked');
+$.cookie('eaa',check?'1':'0');
 });
+if (eaa == '1') {
+$('#email_auto_alert').attr('checked','checked');
+init_alert_email();
+} else {
+$('#email_auto_alert').removeAttr('checked');
+}
+
+init_alert_box();
+
+$('#bu_alert_01').click(function () { init_test_email(); });
 
 function init_alert_box() {
 $.ajax({
@@ -37,13 +51,10 @@ dataType: "json",
 beforeSend: function(a){ $('#divright_alert').html('<h2>Waiting</h2>'); },
 success: function(a){
 $('#divright_alert').html(
-// JSON.stringify(a)
-
 'There are a<br />maximum of<br /><b>'+
 a[0]['user_interactions']+
 '</b><br />interactions<br />for user '+
 a[0]['user_id']+'<br />app n. '+a[0]['app_id']
-
 );
 },
 error: function(a,b,c){ alert( 'Error init_alert_box()\na = ' + a.responseText + '\nb = ' + b + '\nc = ' + c ) },
@@ -54,10 +65,10 @@ complete: function(a,b){ }
 function init_alert_email() {
 $.ajax({
 url: root+'/morethans',
-beforeSend: function(a){ },
+beforeSend: function(a){ $('#divleft ul').hide(); },
 success: function(a){},
 error: function(a,b,c){ alert( 'Error init_alert_email()\na = ' + a.responseText + '\nb = ' + b + '\nc = ' + c ) },
-complete: function(a,b){ }
+complete: function(a,b){ $('#divleft ul').show(); }
 });
 }
 
